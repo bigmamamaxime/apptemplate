@@ -3,7 +3,7 @@ import './NavigationBar.css'
 
 export const NavigationBar = () => {
     return (
-        <div>
+        <div className='NavigationBarWrapper'>
             <span>Home</span>
             <span>Sign In</span>
         </div>
