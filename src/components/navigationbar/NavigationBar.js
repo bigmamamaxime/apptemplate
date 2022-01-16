@@ -1,10 +1,11 @@
 import React from "react";
-import './NavigationBar.css'
+import "./NavigationBar.css"
+import logotype from "../../shared/images/logotype.svg"
 
 export const NavigationBar = () => {
     return (
         <div className='NavigationBarWrapper'>
-            <span>Home</span>
+            <img src={logotype} alt="Error..." />
             <span>Sign In</span>
         </div>
     )
