@@ -1,6 +1,6 @@
 import React from "react";
 import { MyFirstComponent } from "./components/myfirstcomponent/MyFirstComponent";
-import { Routing } from "./routes/Routing"
+import { Routing } from "./routers/Routing"
 
 function App() {
   return (
