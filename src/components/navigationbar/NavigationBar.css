@@ -12,3 +12,12 @@
     grid-column: 9/10;
     align-self: center;
 }
+
+.logotype, 
+.signIn {
+    cursor: pointer;
+}
+
+.profile {
+    grid-column: 8/10;
+}

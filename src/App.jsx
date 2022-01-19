@@ -1,14 +1,14 @@
-import React from "react";
 import { Routing } from "./routers/Routing"
 import { NavigationBar } from "./components/navigationbar/NavigationBar"
-import "./shared/global/Global.css"
+import { UserProvider } from "./shared/global/provider/UserProvider"
+import "./shared/global/css/Global.css"
 
-function App() {
+export const App=() => {
   return (
-    <Routing>
-      <NavigationBar />
-    </Routing>
+    <UserProvider>
+      <Routing>
+        <NavigationBar />
+      </Routing>
+    </UserProvider>
   );
 }
-
-export default App;

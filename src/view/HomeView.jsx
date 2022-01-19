@@ -1,9 +1,8 @@
-import React from "react";
-
 export const HomeView = () => {
+    
     return (
         <div>
-            <h1>This is the Home View</h1>
+            <h1>Welcome to the HomeView</h1>
         </div>
     )
 }
