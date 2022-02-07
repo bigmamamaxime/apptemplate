@@ -11,6 +11,7 @@
 .signIn {
     grid-column: 9/10;
     align-self: center;
+    border: 5px;
 }
 
 .logotype, 

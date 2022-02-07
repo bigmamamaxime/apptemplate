@@ -12,6 +12,14 @@ import RoutingPath from './RoutingPath'
 export const Routing = (props) => {
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
 
+    const blockRouteIfAuthenticated = (navigateToView) => {
+        return authenticatedUser ? HomeView : navigateToView
+    }
+
+    const blockRouteIfNotAuthenticated = (navigateToView) => {
+        return authenticatedUser ? navigateToView : SignInView
+    }
+
     const checkIfUserIsAuthenticatedInBrowser = () => {
         setAuthenticatedUser(localStorage.getItem("username"))
     }
@@ -24,9 +32,9 @@ export const Routing = (props) => {
             {props.children}
             <Routes>
                 <Route path={RoutingPath.recipeView} element={ <RecipeView /> } />
-                <Route path={RoutingPath.signInView} element={ <SignInView /> } />
-                <Route path={RoutingPath.profileView} element={ <ProfileView />} />
-                <Route path={RoutingPath.settingsView} element={ <SettingsView />} />
+                <Route path={RoutingPath.signInView} element={blockRouteIfAuthenticated(<SignInView/>)} />
+                <Route path={RoutingPath.profileView} element={blockRouteIfNotAuthenticated(<ProfileView/>)} />
+                <Route path={RoutingPath.settingsView} element={blockRouteIfNotAuthenticated(<SettingsView/>)} />
                 <Route path={RoutingPath.homeView} element={ <HomeView /> } />
             </Routes>
         </Router>

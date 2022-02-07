@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { UserContext } from "../../shared/global/provider/UserProvider"
 import "./Profile.css"
+import RoutingPath from "../../routers/RoutingPath"
 
 export const Profile = () => {
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
@@ -10,7 +11,7 @@ export const Profile = () => {
     const logout = () => {
         localStorage.removeItem('username')
         setAuthenticatedUser(false)
-        navigate ('/')
+        navigate (RoutingPath.homeView)
     }
 
     return(
@@ -18,8 +19,8 @@ export const Profile = () => {
             <img className="profileimg" src={"https://www.thispersondoesnotexist.com/image"} alt="" />
             <span className="displayUsername">{authenticatedUser}</span>
             <div className="dropdownmenu">
-                <a onClick={() => navigate("/settings")}>Settings</a>
-                <a onClick={() => navigate("/profile")}>Profile</a>
+                <a onClick={() => navigate(RoutingPath.settingsView)}>Settings</a>
+                <a onClick={() => navigate(RoutingPath.profileView)}>Profile</a>
                 <hr />
                 <a onClick={() => logout()}>Logout</a>
             </div>
