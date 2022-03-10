@@ -8,20 +8,13 @@ import RoutingPath from "../../routers/RoutingPath";
 
 export const NavigationBar = () => {
     const navigate = useNavigate();
-    const [authenticatedUser] = useContext(UserContext)
 
-    const displayUserIfAuthenticated = () => {
-        return (authenticatedUser) 
-        ? <div className="profile"> <Profile /> </div> 
-        : <span onClick={() => navigate(RoutingPath.signInView)} className="signIn">Sign In!</span>
-    }
     return (
         <div className='NavigationBarWrapper'>
             <img onClick={() => navigate(RoutingPath.homeView)}
                 className="logotype" 
                 src={logotype} 
                 alt="Error..." />
-            {displayUserIfAuthenticated()}
         </div>
     )
 }
