@@ -9,7 +9,7 @@ import { SettingsView } from '../view/SetttingsView'
 import RoutingPath from './RoutingPath'
 
 
-export const Routing = (props) => {
+export const Routing = (children) => {
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
 
     const blockRouteIfAuthenticated = (navigateToView) => {
@@ -24,12 +24,10 @@ export const Routing = (props) => {
         setAuthenticatedUser(localStorage.getItem("username"))
     }
     
-    useEffect(() => {
-        checkIfUserIsAuthenticatedInBrowser()
-    }, [])
+
     return (
         <Router>
-            {props.children}
+            {children}
             <Routes>
                 <Route path={RoutingPath.recipeView} element={ <RecipeView /> } />
                 <Route path={RoutingPath.signInView} element={blockRouteIfAuthenticated(<SignInView/>)} />

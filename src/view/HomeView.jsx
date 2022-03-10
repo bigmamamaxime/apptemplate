@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import PokemonService from "../shared/api/service/PokemonService"
 import "./HomeView.css"
+import PokemonService from "../shared/api/service/PokemonService"
 
 
 export const HomeView = () => {
     const [data, setData] = useState()
-    const [search, setSearch] = useState()
+    const [search, setSearch] = useState("")
     
     const fetchDataFromExternalAPI = () => {
         
@@ -21,14 +21,11 @@ export const HomeView = () => {
     const displayData = () => {
         if(data) {
             return <div>
-                <h3>id: {data.id}</h3>
+                <h3>Id: {data.id}</h3>
                 <img className="pkmimg" src={data.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_default} alt="Error..." />
                 <h3>Name: {makeFirstCharUpperCase(data.name)}</h3>
                 <h3>Ability: {makeFirstCharUpperCase(data.abilities[0].ability.name)}</h3>
             </div>
-        }
-        if(data) {
-            return <div id="container" style="width:400px; height:400px;"></div>
         }
     }
     return (
